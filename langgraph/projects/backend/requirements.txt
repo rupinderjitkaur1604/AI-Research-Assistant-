@@ -26,3 +26,8 @@ requests
  jinja2
   python-multipart
 ddgs
+
+
+langchain-huggingface
+sentence-transformers
+torch
