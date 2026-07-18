@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Research Assistant</title>
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+
+        {% if mode=="pdf" %}
+
+            <h2>📄 PDF Assistant</h2>
+
+        {% else %}
+
+            <h2>🌍 General AI Chat</h2>
+
+        {% endif %}
+
+        <button
+            class="new-chat"
+            onclick="newChat()">
+
+            + New Chat
+
+        </button>
+
+        <hr>
+
+        {% if mode=="pdf" %}
+
+        <h3>
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            Upload PDF
+
+        </h3>
+
+        <input
+            type="file"
+            id="pdfFile"
+            accept=".pdf">
+
+        <button
+            class="upload-btn"
+            onclick="uploadPDF()">
+
+            <i class="fa-solid fa-upload"></i>
+
+            Upload PDF
+
+        </button>
+
+        <hr>
+
+        {% endif %}
+
+        <h3>
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            Recent Chats
+
+        </h3>
+
+        <div
+            id="historyList"
+            class="recent-chat">
+
+        </div>
+
+    </div>
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="main">
+
+        <div class="header">
+
+            {% if mode=="pdf" %}
+
+            <h1>
+
+                📄 Chat With Your PDF
+
+            </h1>
+
+            <p>
+
+                Upload a PDF and ask intelligent questions using
+                LangGraph + FAISS + RAG.
+
+            </p>
+
+            {% else %}
+
+            <h1>
+
+                🌍 General AI Chat
+
+            </h1>
+
+            <p>
+
+                Ask anything using AI,
+                Web Search,
+                Time Tool,
+                Calculator,
+                and Agentic AI.
+
+            </p>
+
+            {% endif %}
+
+        </div>
+
+        <!-- Chat Messages -->
+
+        <div
+            id="chatBox"
+            class="chat-box">
+
+        </div>
+
+        <!-- Input -->
+
+        <div class="input-area">
+
+            <input
+
+                type="text"
+
+                id="question"
+
+                {% if mode=="pdf" %}
+
+                placeholder="Ask something about your PDF..."
+
+                {% else %}
+
+                placeholder="Ask me anything..."
+
+                {% endif %}
+
+            >
+
+            <button
+
+                class="send-btn"
+
+                onclick="askQuestion()"
+
+                title="Send">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const MODE = "{{ mode }}";
+
+</script>
+
+<script src="/static/script.js?v=5"></script>
+
+</body>
+
+</html>

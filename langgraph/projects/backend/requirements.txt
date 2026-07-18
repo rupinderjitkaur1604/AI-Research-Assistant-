@@ -1,0 +1,27 @@
+fastapi
+uvicorn
+python-multipart
+langchain
+langgraph
+langchain-community
+langchain-ollama
+faiss-cpu
+pypdf
+pymupdf
+duckduckgo-search
+numpy
+pydantic
+python-dotenv
+sympy
+qdrant-client
+langchain-qdrant
+requests
+
+
+ langchain-groq
+
+
+ fastapi
+ uvicorn
+ jinja2
+  python-multipart
